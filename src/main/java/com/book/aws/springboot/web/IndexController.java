@@ -1,5 +1,6 @@
 package com.book.aws.springboot.web;
 
+import com.book.aws.springboot.config.auth.LoginUser;
 import com.book.aws.springboot.config.auth.dto.SessionUser;
 import com.book.aws.springboot.service.PostsService;
 import com.book.aws.springboot.web.dto.PostsResponseDto;
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,13 +16,10 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class IndexController {
     private final PostsService postsService;
-    private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if (user != null) {
             model.addAttribute("userName", user.getName());
@@ -41,5 +38,4 @@ public class IndexController {
         model.addAttribute("posts", dto);
         return "posts-update";
     }
-
 }

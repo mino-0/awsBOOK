@@ -1,10 +1,18 @@
 package com.book.aws.springboot.config.auth.dto;
 
 import com.book.aws.springboot.domain.user.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Getter
-public class SessionUser {
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class SessionUser implements Serializable {
     private String name;
     private String email;
     private String picture;
