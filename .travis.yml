@@ -3,16 +3,19 @@ jdk:
   -openjdk11
 branches:
   only:
-    -master
+      - master
 
   #Travis CI 서버의 Home
-  cache:
+cache:
     directories:
-      -'$HOME/.m2/repository'
-      -'$HOME/.gradle'
-      script:"./gradlew clean build"
+        - '$HOME/.m2/repository'
+        - '$HOME/.gradle'
+
+# main 브랜치에 push 되면 수행되는 명령어
+script: "./gradlew clean build"
+
     #CI 실행 완료 시 메일로 알람
-    notifications:
-      email:
+notifications:
+    email:
         recipients:
           -qawsedrfnnn@gmail.com
