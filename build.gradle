@@ -29,6 +29,12 @@ dependencies {
     implementation 'org.springframework.security:spring-security-test:5.5.1'
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.aws.springboot.AwsApplication'
+    }
+}
+
 
 test {
     useJUnitPlatform()
