@@ -28,8 +28,13 @@ dependencies {
     implementation 'org.springframework.session:spring-session-jdbc:2.6.1'
     implementation 'org.springframework.security:spring-security-test:5.5.1'
     implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.2-rc'
+    implementation 'org.springframework.boot:spring-boot-maven-plugin:2.6.3'
+}
 
-    implementation 'org.springframework.boot:spring-boot-gradle-plugin:2.6.3'
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.book.aws.springboot.Class'
+    }
 }
 
 
