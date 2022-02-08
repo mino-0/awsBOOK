@@ -41,7 +41,7 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
     bucket: awsbook-mino
     key: awsbook.zip
-    bundle-type: zip
+    bundle_type: zip
     application: awsbook
     deployment_group: awsbook-group
     region: ap-northeast-2
