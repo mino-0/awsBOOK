@@ -52,4 +52,4 @@ deploy:
 notifications:
     email:
         recipients:
-          -qawsedrfnnn@gmail.com
+          - qawsedrfnnn@gmail.com
