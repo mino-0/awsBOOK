@@ -34,7 +34,11 @@ dependencies {
 jar {
     manifest {
         attributes 'Main-Class': 'com.book.aws.springboot.AwsApplication'
-        from configurations.runtime.collect { zipTree(it) }
+        from {
+            configurations.compile.collect {
+                it.isDirectory() ? it : zipTree(it)
+            }
+        }
     }
 }
 
