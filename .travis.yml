@@ -34,14 +34,14 @@ deploy:
     skip_cleanup: true
     acl: private
     local_dir: deploy
-    wait-untill-deployed: true
+    wait-until-deployed: true
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: awsbook-mino
     key: awsBOOK.zip
-    bundly-type: zip
+    bundle-type: zip
     application: awsbook
     deployment_group: awsbook-group
     region: ap-northeast-2
