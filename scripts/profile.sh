@@ -6,14 +6,14 @@ function find_idle_profile()
 {
   RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
 
-  if [ ${RESPONSE_CODE} - ge 400]   #400보다 크면(에러코드 400이상)
+  if [ ${RESPONSE_CODE} - ge 400 ]   #400보다 크면(에러코드 400이상)
   then
     CURRENT_PROFILE = real2
   else
     CURRENT_PROFILE = $(curl -s http://localhost/profile)
   fi
 
-  if [[] ${CURRENT_PROFILE} == real ]]
+  if [[ ${CURRENT_PROFILE} == real ]]
   then
     IDLE_PROFILE = real2
   else
