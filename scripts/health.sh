@@ -18,7 +18,7 @@ do
   UPCOUNT=$(echo ${RESPONSE} | grep 'real' | wc -l)
 #  UP_COUNT=$(echo ${RESPONSE} | grep 'real' | wc -1)
 
-  if [ ${UP_COUNT} -ge 1 ]
+  if [[ ${UP_COUNT} -ge 1 ]]
     then #$up_count >=1 ("real" 문자열이 있는지 검증)
       echo "> Health Check 성공"
       switch_proxy
