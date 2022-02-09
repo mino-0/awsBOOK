@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragment/header :: head">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,6 +14,7 @@
               <a href="posts/save" role="button" class="btn btn-primary">글 등록</a>
               <div th:if="${userName} != null">
                   Logged in as : <span id="user" th:text="${userName}"></span>
+                  Principal : <span id ="principal" sec:authentication="principal.authorities"></span>
                   <a href="logout" class="btn btn-info active" role="button" th:text="Logout"></a>
               </div>
               <div th:if="${userName}==null">
