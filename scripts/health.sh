@@ -14,8 +14,9 @@ sleep 10
 
 for RETRY_COUNT in {1..10}
 do
-  RESPONSE=$(curl -s http://localhost:${IDEL_PORT}/profile)
-  UP_COUNT=$(echo ${RESPONSE} | grep 'real' | wc -1)
+  RESPONSE=$( curl -s http://localhost:${IDEL_PORT}/profile )
+  UP_COUNT=$( echo ${RESPONSE} | grep 'real' | wc -l )
+#  UP_COUNT=$(echo ${RESPONSE} | grep 'real' | wc -1)
 
   if [ $(UP_COUNT) -ge 1]
     then #$up_count >=1 ("real" 문자열이 있는지 검증)
