@@ -1,3 +1,6 @@
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+
 plugins {
     id 'org.springframework.boot' version '2.6.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -5,8 +8,15 @@ plugins {
 }
 
 group = 'com.book'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1-SNAPSHOT-' + date()
 sourceCompatibility = '11'
+
+def date() {
+    def now = new Date()
+    def formatter = new SimpleDateFormat("yyyyMMddHHmmss")
+    def nowDate = formatter.format(now)
+    return nowDate
+}
 
 repositories {
     mavenCentral()
